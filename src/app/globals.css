@@ -1,0 +1,228 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+  Good Decisions — Design System
+  Sweet, friendly fintech: soft warm canvas, near-black "ink" hero surfaces,
+  a signature rose-pink accent (used as a FILL with light text; a deeper rose
+  `--link` handles interactive text on light), and playful pastel tiles.
+*/
+
+:root {
+  --radius: 0.875rem;
+
+  /* Surfaces — soft warm pink-cream */
+  --background: oklch(0.97 0.007 350);
+  --foreground: oklch(0.21 0.014 350);
+  --card: oklch(0.997 0.003 350);
+  --card-foreground: oklch(0.21 0.014 350);
+  --popover: oklch(0.997 0.003 350);
+  --popover-foreground: oklch(0.21 0.014 350);
+
+  /* Brand — rose pink. Used as a FILL; foreground is near-white. */
+  --primary: oklch(0.63 0.21 355);
+  --primary-foreground: oklch(0.99 0.008 350);
+
+  /* Readable interactive text/icon colour (bright pink is weak on light). */
+  --link: oklch(0.53 0.18 357);
+
+  /* Near-black ink surfaces (hero balance card, dark sections). */
+  --ink: oklch(0.2 0.012 350);
+  --ink-foreground: oklch(0.97 0.008 350);
+  --ink-muted: oklch(0.71 0.018 350);
+
+  /* Secondary — soft warm neutral */
+  --secondary: oklch(0.94 0.012 350);
+  --secondary-foreground: oklch(0.3 0.015 350);
+
+  --muted: oklch(0.95 0.008 350);
+  --muted-foreground: oklch(0.5 0.014 350);
+
+  --accent: oklch(0.93 0.05 350);
+  --accent-foreground: oklch(0.4 0.13 355);
+
+  --destructive: oklch(0.6 0.2 18);
+  --destructive-foreground: oklch(0.99 0.01 18);
+
+  --border: oklch(0.9 0.01 350);
+  --input: oklch(0.88 0.012 350);
+  --ring: oklch(0.7 0.17 355);
+
+  /* Semantic finance colours */
+  --positive: oklch(0.62 0.15 150);
+  --positive-foreground: oklch(0.99 0.01 150);
+  --warning: oklch(0.78 0.16 70);
+  --warning-foreground: oklch(0.28 0.06 70);
+
+  /* Pastel tiles */
+  --pastel-mint: oklch(0.79 0.08 158);
+  --pastel-sky: oklch(0.81 0.07 245);
+  --pastel-lavender: oklch(0.79 0.1 290);
+  --pastel-peach: oklch(0.83 0.09 55);
+  --pastel-lemon: oklch(0.91 0.16 102);
+  --pastel-rose: oklch(0.82 0.1 355);
+  --pastel-coral: oklch(0.71 0.16 30);
+  --pastel-teal: oklch(0.8 0.08 195);
+
+  /* Chart series */
+  --chart-1: oklch(0.68 0.2 355);
+  --chart-2: oklch(0.79 0.1 290);
+  --chart-3: oklch(0.83 0.09 55);
+  --chart-4: oklch(0.81 0.07 245);
+  --chart-5: oklch(0.71 0.16 30);
+}
+
+.dark {
+  --background: oklch(0.18 0.01 350);
+  --foreground: oklch(0.95 0.008 350);
+  --card: oklch(0.22 0.012 350);
+  --card-foreground: oklch(0.95 0.008 350);
+  --popover: oklch(0.22 0.012 350);
+  --popover-foreground: oklch(0.95 0.008 350);
+
+  --primary: oklch(0.66 0.2 355);
+  --primary-foreground: oklch(0.99 0.008 350);
+
+  --link: oklch(0.78 0.15 355);
+
+  --ink: oklch(0.14 0.01 350);
+  --ink-foreground: oklch(0.97 0.008 350);
+  --ink-muted: oklch(0.69 0.018 350);
+
+  --secondary: oklch(0.28 0.014 350);
+  --secondary-foreground: oklch(0.93 0.01 350);
+
+  --muted: oklch(0.26 0.012 350);
+  --muted-foreground: oklch(0.71 0.014 350);
+
+  --accent: oklch(0.33 0.07 355);
+  --accent-foreground: oklch(0.9 0.06 355);
+
+  --destructive: oklch(0.67 0.19 20);
+  --destructive-foreground: oklch(0.15 0.02 20);
+
+  --border: oklch(0.31 0.012 350);
+  --input: oklch(0.34 0.014 350);
+  --ring: oklch(0.66 0.17 355);
+
+  --positive: oklch(0.72 0.15 150);
+  --positive-foreground: oklch(0.16 0.03 150);
+  --warning: oklch(0.8 0.15 75);
+  --warning-foreground: oklch(0.22 0.05 75);
+
+  --pastel-mint: oklch(0.6 0.09 158);
+  --pastel-sky: oklch(0.6 0.08 245);
+  --pastel-lavender: oklch(0.6 0.11 290);
+  --pastel-peach: oklch(0.64 0.1 55);
+  --pastel-lemon: oklch(0.7 0.14 102);
+  --pastel-rose: oklch(0.64 0.12 355);
+  --pastel-coral: oklch(0.62 0.15 30);
+  --pastel-teal: oklch(0.6 0.09 195);
+
+  --chart-1: oklch(0.7 0.19 355);
+  --chart-2: oklch(0.7 0.11 290);
+  --chart-3: oklch(0.74 0.1 55);
+  --chart-4: oklch(0.72 0.08 245);
+  --chart-5: oklch(0.68 0.15 30);
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 6px);
+  --radius-md: calc(var(--radius) - 3px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-link: var(--link);
+  --color-ink: var(--ink);
+  --color-ink-foreground: var(--ink-foreground);
+  --color-ink-muted: var(--ink-muted);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-positive: var(--positive);
+  --color-positive-foreground: var(--positive-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+
+  --color-pastel-mint: var(--pastel-mint);
+  --color-pastel-sky: var(--pastel-sky);
+  --color-pastel-lavender: var(--pastel-lavender);
+  --color-pastel-peach: var(--pastel-peach);
+  --color-pastel-lemon: var(--pastel-lemon);
+  --color-pastel-rose: var(--pastel-rose);
+  --color-pastel-coral: var(--pastel-coral);
+  --color-pastel-teal: var(--pastel-teal);
+
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+    /* No grey flash when tapping buttons/links on touch devices. */
+    -webkit-tap-highlight-color: transparent;
+  }
+  html {
+    /* Avoid the iOS rubber-band white gap behind the app. */
+    overscroll-behavior-y: none;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    /* Momentum scrolling + no text selection on chrome/buttons by default. */
+    -webkit-overflow-scrolling: touch;
+  }
+  h1, h2, h3, h4 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .shadow-soft {
+    box-shadow:
+      0 1px 2px oklch(0.2 0.02 350 / 0.05),
+      0 4px 14px oklch(0.2 0.02 350 / 0.06);
+  }
+  .shadow-soft-lg {
+    box-shadow:
+      0 2px 4px oklch(0.2 0.02 350 / 0.06),
+      0 10px 30px oklch(0.2 0.02 350 / 0.1);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
