@@ -21,8 +21,6 @@ export const ACCOUNTS: Account[] = [
   { username: "sue", password: "gooddecisions" },
   { username: "priya", password: "kaya-toast" },
   { username: "sueling", password: "teh-c-peng" },
-  { username: "mei", password: "chicken-rice" },
-  { username: "daniel", password: "milo-dinosaur" },
 ];
 
 const SESSION_KEY = "fff:auth";
